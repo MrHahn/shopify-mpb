@@ -1,0 +1,99 @@
+{%- assign bg_pos = mb.img_position %}
+
+{%- capture bg_left_styles -%}
+    	left: 0;right: 50%;
+{%- endcapture -%}
+
+{%- capture bg_right_styles -%}
+    	left: 50%;right: 0;
+{%- endcapture -%}
+
+{%- capture bg_image -%}
+	{%- unless mb.bg_half == blank -%}
+		style="background:url({{ mb.bg_half | img_url: 'master'}}) center / cover no-repeat; {%- if bg_pos == 'left' -%}{{bg_left_styles}}{%- else -%}{{bg_right_styles}}{%- endif -%}"
+	{%- endunless -%}
+{%- endcapture -%}
+
+{%- capture bg_color -%}
+	{%- unless mb.background_color == blank -%}
+		background-color:{{mb.background_color}};
+	{%- endunless -%}
+{%- endcapture -%}
+
+{%- capture section_padding -%}
+	padding: {%- if mb.sec_padding != blank -%} {{ mb.sec_padding | append: "px" }} {%- else -%}0{%- endif -%} 0;
+{%- endcapture -%}
+
+{%- capture heading_styles -%}
+    {%- unless mb.content_heading_size == blank -%}
+    font-size: {{mb.content_heading_size | append: 'px' }};
+    {%- endunless -%}
+    {%- unless mb.content_heading_color == blank -%}
+    color: {{mb.content_heading_color | color_to_hex }};
+    {%- endunless -%}
+{%- endcapture -%}
+
+{%- capture half_content_styles -%}
+    {%- unless mb.half_content_size == blank -%}
+      font-size: {{mb.half_content_size | append: 'px' }};
+    {%- endunless -%}
+    {%- unless mb.half_content_color == blank -%}
+      color: {{mb.half_content_color | color_to_hex }};
+    {%- endunless -%}
+{%- endcapture -%}
+
+{%- capture background_transp -%}
+    {%- unless mb.show_transp == false -%}
+    background-color: rgba({{mb.monster_transp | color_extract: 'red'}}, {{mb.monster_transp | color_extract: 'green'}}, {{mb.monster_transp | color_extract: 'blue'}}, {{mb.monster_avalue | append: '%'}});
+    {%- endunless -%}
+{%- endcapture -%}
+
+
+
+<div style="{{bg_color}} {{section_padding}}" class="monster-block-item row__fifty-fifty block-{{block.id}} {{mb.custom_class}}">
+{% case bg_pos %}
+
+{% when 'left' %}
+  <div {{bg_image}} class="background-wrapper bg-left"><div style="{{ background_transp }}" class="background-overlay d-block d-md-none"></div></div>
+    <div class="{{container_width}}">
+      <div class="row no-gutters">
+        <div class="col-sm-6 text-center d-flex justify-content-center align-items-center">
+          {% unless mb.content_image == blannk %}
+		  	<img src="{{ mb.content_image | img_url: 'master' }}" alt=""/>
+          {% endunless %}
+        </div>
+        <div class="col-sm-6 {{mb.content_alignment}}">
+          <div class="content-inner">
+          {%- unless mb.content_heading == blank -%}<h2 style="{{heading_styles}}">{{mb.content_heading}}</h2>{%- endunless -%}
+          {%- unless mb.half_content == blank -%}<div style="{{half_content_styles}} margin-bottom: 15px;">{{mb.half_content}}</div>{%- endunless -%}
+          {%- unless mb.content_btn_link == blank %}<a href="{{mb.content_btn_link}}" class="btn {{mb.button_style}}">{{mb.content_btn}}</a>{% endunless %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% when 'right' %}
+  	<div {{bg_image}}  class="background-wrapper bg-right"><div style="{{ background_transp }}" class="background-overlay d-block d-md-none"></div></div>
+    <div class="{{container_width}}">
+      <div class="row no-gutters">
+        <div class="col-sm-6 {{mb.content_alignment}}">
+          <div class="content-inner">
+          {%- unless mb.content_heading == blank -%}<h2 style="{{heading_styles}}">{{mb.content_heading}}</h2>{%- endunless -%}
+          {%- unless mb.half_content == blank -%}<div style="{{half_content_styles}} margin-bottom: 15px;">{{mb.half_content}}</div>{%- endunless -%}
+          {%- unless mb.content_btn_link == blank %}<a href="{{mb.content_btn_link}}" class="btn {{mb.button_style}}">{{mb.content_btn}}</a>{% endunless %}
+          </div>
+        </div>
+        <div class="col-sm-6 text-center d-flex justify-content-center align-items-center">
+          {% unless mb.content_image == blank %}
+		  	<img src="{{ mb.content_image | img_url: 'master' }}" alt=""/>
+          {% endunless %}
+        </div>
+      </div>
+    </div>
+
+
+
+{% endcase %}
+</div>
+
