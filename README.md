@@ -31,7 +31,7 @@ Install the styles
 
 ```
 monster_styles.css
-(the contents of this file can just be copied to the bottom of any stylesheet)
+(the contents of this file can just be copied to the bottom of any .scss stylesheet. .css will not work)
 ```
 
 once all files have been added to the theme you just need to add this snippet of code to theme.liquid file above the </head> tag
