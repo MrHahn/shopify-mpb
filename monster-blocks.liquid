@@ -1,0 +1,800 @@
+{% render 'monster-block', section: section %}
+
+
+{% schema %}
+  {
+    "name": "Monster Block 1",
+	"blocks":[
+		{
+			"type": "hero",
+			"name": "Monster Hero",
+			"settings": [
+				{
+                    "type": "header",
+                    "content": "Background Image"
+				},
+				{
+					"type": "image_picker",
+					"id": "monster_hero_bg",
+					"label": "Monster Hero Image"
+				},
+				{
+					"type": "checkbox",
+					"id": "show_transp",
+					"label": "Show Transparency"
+				},
+				{
+					"type": "color",
+					"id": "monster_transp",
+					"label": "Monster Hero Transparency"
+				},
+				{
+					"type": "range",
+					"id": "monster_avalue",
+					"min": 0,
+					"max": 100,
+					"step": 1,
+					"unit": "%",
+					"label": "Opacity",
+					"default": 0
+				},
+				{
+                    "type": "header",
+                    "content": "Content Settings"
+				},
+				{
+					"type": "select",
+					"id": "text_align",
+					"label": "Text Alignment",
+					"options": [
+						{
+							"value": "text-center",
+							"label": "Text Center"
+						},
+						{
+							"value": "text-right",
+							"label": "Text Right"
+						},
+						{
+							"value": "text-left",
+							"label": "Text Left"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": "hero_heading",
+					"label": "Monster Hero Heading"
+				},
+				{
+					"type": "text",
+					"id": "hero_heading_size",
+					"label": "Hero Heading Font Size",
+					"info": "in px"
+				},
+				{
+					"type": "color",
+					"id": "hero_heading_color",
+					"label": "Monster Heading Color"
+				},
+				{
+					"type": "text",
+					"id": "hero_subheading",
+					"label": "Monster Hero Subheading"
+				},
+				{
+					"type": "text",
+					"id": "hero_subheading_size",
+					"label": "Hero Subheading Font Size",
+					"info": "in px"
+				},
+				{
+					"type": "color",
+					"id": "hero_subheading_color",
+					"label": "Monster Subheading Color"
+				},
+				{
+					"type" : "text",
+					"id": "hero_btn",
+					"label": "Monster Hero Button Text"
+				},
+				{
+					"type": "url",
+					"id": "hero_link",
+					"label": "Monster Hero Link"
+				},
+				{
+					"type": "select",
+					"id": "button_style",
+					"label": "Button Style",
+					"options": [
+						{
+                          "value": "btn",
+                          "label": "Button 1"
+                        },
+                        {
+                          "value": "btn2",
+                          "label": "Button 2"
+                        }
+					]
+				},
+				{
+					"type": "header",
+					"content": "Spacing"
+				},
+				{
+					"type": "select",
+					"id": "container_width",
+					"label": "Container Width",
+					"options": [
+						{
+							"value": "container",
+							"label": "Contained"
+						},
+						{
+							"value": "container-fluid",
+							"label": "Full Width"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": "sec_padding",
+					"label": "Section Padding",
+					"info": "Top and Bottom Padding in px",
+					"default": "30"
+				},
+				{
+					"type": "header",
+					"content": "Custom"
+				},
+				{
+					"type": "text",
+					"id": "custom_class",
+					"label": "Custom Class"
+				}
+			]
+		},
+		{
+			"type": "content",
+			"name": "Monster Content",
+			"settings": [
+				{
+                    "type": "header",
+                    "content": "Background Image"
+				},
+				{
+					"type": "image_picker",
+					"id": "monster_content_bg",
+					"label": "Monster Content Image"
+				},
+				{
+					"type": "checkbox",
+					"id": "show_transp",
+					"label": "Show Transparency"
+				},
+				{
+					"type": "color",
+					"id": "monster_transp",
+					"label": "Monster Content Transparency"
+				},
+				{
+					"type": "range",
+					"id": "monster_avalue",
+					"min": 0,
+					"max": 100,
+					"step": 1,
+					"unit": "%",
+					"label": "Opacity",
+					"default": 0
+				},
+				{
+                    "type": "header",
+                    "content": "Content Settings"
+				},
+				{
+					"type": "select",
+					"id": "text_align",
+					"label": "Text Alignment",
+					"options": [
+						{
+							"value": "text-center",
+							"label": "Text Center"
+						},
+						{
+							"value": "text-right",
+							"label": "Text Right"
+						},
+						{
+							"value": "text-left",
+							"label": "Text Left"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": "content_heading",
+					"label": "Monster Content Heading"
+				},
+				{
+					"type": "text",
+					"id": "content_heading_size",
+					"label": "Content Heading Font Size",
+					"info": "in px"
+				},
+				{
+					"type": "color",
+					"id": "content_heading_color",
+					"label": "Monster Content Heading Color"
+				},
+				{
+					"type": "html",
+					"id": "content_subheading",
+					"label": "Monster Content"
+				},
+				{
+					"type": "text",
+					"id": "content_subheading_size",
+					"label": "Content Subheading Font Size",
+					"info": "in px"
+				},
+				{
+					"type": "color",
+					"id": "content_subheading_color",
+					"label": "Content Monster Subheading Color"
+				},
+				{
+					"type" : "text",
+					"id": "content_btn",
+					"label": "Monster Content Button Text"
+				},
+				{
+					"type": "url",
+					"id": "content_link",
+					"label": "Monster Content Link"
+				},
+				{
+					"type": "select",
+					"id": "button_style",
+					"label": "Button Style",
+					"options": [
+						{
+                          "value": "btn",
+                          "label": "Button 1"
+                        },
+                        {
+                          "value": "btn2",
+                          "label": "Button 2"
+                        }
+					]
+				},
+				{
+					"type": "header",
+					"content": "Spacing"
+				},
+				{
+					"type": "select",
+					"id": "container_width",
+					"label": "Container Width",
+					"options": [
+						{
+							"value": "container",
+							"label": "Contained"
+						},
+						{
+							"value": "container-fluid",
+							"label": "Full Width"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": "sec_padding",
+					"label": "Section Padding",
+					"info": "Top and Bottom Padding in px",
+					"default": "30"
+				},
+				{
+					"type": "header",
+					"content": "Custom"
+				},
+				{
+					"type": "text",
+					"id": "custom_class",
+					"label": "Custom Class"
+				}
+			]
+		},
+		{
+			"type": "fifty-fifty",
+			"name": "Monster Fifty Fifty Row",
+			"settings": [
+				{
+					"type": "header",
+					"content": "Imagery"
+				},
+				{
+					"type": "image_picker",
+					"id": "bg_half",
+					"label": "Background Image"
+				},
+				{
+					"type": "select",
+					"id": "img_position",
+					"label": "Image Position",
+					"options": [
+						{
+							"value": "left",
+							"label": "Left"
+						},
+						{
+							"value": "right",
+							"label": "Right"
+						}
+					]
+				},
+				{
+					"type": "color",
+					"id": "background_color",
+					"label": "Background Color"
+				},
+				{
+					"type": "checkbox",
+					"id": "show_transp",
+					"label": "Show Transparency",
+					"info": "Only shows on mobile"
+				},
+				{
+					"type": "color",
+					"id": "monster_transp",
+					"label": "Monster Content Transparency"
+				},
+				{
+					"type": "range",
+					"id": "monster_avalue",
+					"min": 0,
+					"max": 100,
+					"step": 1,
+					"unit": "%",
+					"label": "Opacity",
+					"default": 0
+				},
+				{
+					"type": "image_picker",
+					"id": "content_image",
+					"label": "Content Image",
+					"info": "Will show on opposite side of content"
+				},
+				{
+					"type": "header",
+					"content": "Content"
+				},
+				{
+					"type": "select",
+					"id": "content_alignment",
+					"label": "Content Alignment",
+					"options": [
+						{
+							"value": "text-right",
+							"label": "Text Right"
+						},
+						{
+							"value": "text-center",
+							"label": "Text Center"
+						},
+						{
+							"value": "text-left",
+							"label": "Text Left"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": "content_heading",
+					"label": "Content Heading"
+				},
+				{
+					"type": "text",
+					"id": "content_heading_size",
+					"label": "Content Heading Font Size",
+					"info": "in px"
+				},
+				{
+					"type": "color",
+					"id": "content_heading_color",
+					"label": "Content Heading Color"
+				},
+				{
+					"type": "html",
+					"id": "half_content",
+					"label": "Text Content"
+				},
+				{
+					"type": "text",
+					"id": "half_content_size",
+					"label": "Content Font Size",
+					"info": "in px"
+				},
+				{
+					"type": "color",
+					"id": "half_content_color",
+					"label": "Content Color"
+				},
+				{
+					"type": "text",
+					"id": "content_btn",
+					"label": "Content Button Text"
+				},
+				{
+					"type": "url",
+					"id": "content_btn_link",
+					"label": "Content Button Link"
+				},
+				{
+					"type": "select",
+					"id": "button_style",
+					"label": "Button Style",
+					"options": [
+						{
+                          "value": "btn",
+                          "label": "Button 1"
+                        },
+                        {
+                          "value": "btn2",
+                          "label": "Button 2"
+                        }
+					]
+				},
+				{
+					"type": "header",
+					"content": "Spacing"
+				},
+				{
+					"type": "select",
+					"id": "container_width",
+					"label": "Container Width",
+					"options": [
+						{
+							"value": "container",
+							"label": "Contained"
+						},
+						{
+							"value": "container-fluid",
+							"label": "Full Width"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"id": "sec_padding",
+					"label": "Section Padding",
+					"info": "Top and Bottom Padding in px",
+					"default": "30"
+				},
+				{
+					"type": "header",
+					"content": "Custom"
+				},
+				{
+					"type": "text",
+					"id": "custom_class",
+					"label": "Custom Class"
+				}
+			]
+		},
+		{
+			"type": "cta_row",
+			"name": "Monster CTA Row",
+			"settings": [
+				{
+					"type": "header",
+					"content": "Background"
+				},
+				{
+					"type": "image_picker",
+					"id": "cta_bg_img",
+					"label": "CTA Row Background Image"
+				},
+				{
+					"type": "checkbox",
+					"id": "show_transp",
+					"label": "Show Background Transparency"
+				},
+				{
+					"type": "color",
+					"id": "monster_transp",
+					"label": "Monster Background Transparency"
+				},
+				{
+					"type": "range",
+					"id": "monster_avalue",
+					"min": 0,
+					"max": 100,
+					"step": 1,
+					"unit": "%",
+					"label": "Background Transparency",
+					"default": 0
+				},
+				{
+					"type": "header",
+					"content": "CTAs"
+				},
+				{
+					"type": "number",
+					"id": "cta_height",
+					"label": "CTA Image Height",
+					"info": "in px, only applicable for background format"
+				},
+				{
+					"type": "select",
+					"id": "cta_text_position",
+					"label": "Monster CTA Text Position",
+					"options": [
+						{
+							"value": "overlay",
+							"label": "Overlay"
+						},
+						{
+							"value": "bottom",
+							"label": "Bottom"
+						}
+					]
+				},
+				{
+					"type": "select",
+					"id": "cta_format",
+					"label": "CTA Display Format",
+					"info": "is the image displayed as a background or its own image element",
+					"options": [
+						{
+							"value": "background",
+							"label": "Background"
+						},
+						{
+							"value": "image",
+							"label": "Image"
+						}
+					]
+				},
+				{
+					"type": "checkbox",
+					"id": "show_CTA_transp",
+					"label": "Show CTA Transparency",
+					"info": "only shows using Overlay Text Position"
+				},
+				{
+					"type": "color",
+					"id": "monster_CTA_transp",
+					"label": "Monster CTA Transparency"
+				},
+				{
+					"type": "range",
+					"id": "monster_CTA_avalue",
+					"min": 0,
+					"max": 100,
+					"step": 1,
+					"unit": "%",
+					"label": "Transparency",
+					"default": 0
+				},
+				{
+					"type": "text",
+					"id": "cta_heading_size",
+					"label": "CTA Heading Size",
+					"info": "in px"
+				},
+				{
+					"type": "color",
+					"id": "cta_heading_color",
+					"label": "CTA Heading Color"
+				},
+				{
+					"type": "text",
+					"id": "cta_subheading_size",
+					"label": "CTA Subheading Size",
+					"info": "in px"
+				},
+				{
+					"type": "color",
+					"id": "cta_subheading_color",
+					"label": "CTA Subheading Color"
+				},
+				{
+                  "type": "select",
+                  "id": "buttonstyle",
+                  "label": "Button Style",
+                  "default": "btn2",
+                  "options": [
+                    {
+                      "value": "btn",
+                      "label": "Button 1"
+                    },
+                    {
+                      "value": "btn2",
+                      "label": "Button 2"
+                    }
+                  ]
+                },
+				{
+					"type": "header",
+					"content": "CTA 1"
+				},
+				{
+					"type": "checkbox",
+					"id": "show_cta1",
+					"label": "Show CTA 1?"
+				},
+				{
+					"type": "image_picker",
+					"id": "cta_1_img",
+					"label": "Monster CTA 1 Image"
+				},
+				{
+					"type": "text",
+					"id": "cta_1_heading",
+					"label": "Monster CTA 1 Heading"
+				},
+				{
+					"type": "text",
+					"id": "cta_1_subheading",
+					"label": "Monster CTA 1 Subheading"
+				},
+				{
+					"type": "text",
+					"id": "cta_1_btn",
+					"label": "Monster CTA 1 Button Text"
+				},
+				{
+					"type": "url",
+					"id": "cta_1_link",
+					"label": "Monster CTA 1 Button Link"
+				},
+				{
+					"type": "header",
+					"content": "CTA 2"
+				},
+				{
+                    "type": "checkbox",
+                    "id": "show_cta2",
+                    "label": "Show CTA 2?"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "cta_2_img",
+                    "label": "Monster CTA 2 Image"
+                },
+                {
+                    "type": "text",
+                    "id": "cta_2_heading",
+                    "label": "Monster CTA 2 Heading"
+                },
+                {
+                    "type": "text",
+                    "id": "cta_2_subheading",
+                    "label": "Monster CTA 2 Subheading"
+                },
+                {
+                    "type": "text",
+                    "id": "cta_2_btn",
+                    "label": "Monster CTA 2 Button Text"
+                },
+                {
+                    "type": "url",
+                    "id": "cta_2_link",
+                    "label": "Monster CTA 2 Button Link"
+                },
+				{
+					"type": "header",
+					"content": "CTA 3"
+				},
+				{
+                    "type": "checkbox",
+                    "id": "show_cta3",
+                    "label": "Show CTA 3?"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "cta_3_img",
+                    "label": "Monster CTA 3 Image"
+                },
+                {
+                    "type": "text",
+                    "id": "cta_3_heading",
+                    "label": "Monster CTA 3 Heading"
+                },
+                {
+                    "type": "text",
+                    "id": "cta_3_subheading",
+                    "label": "Monster CTA 3 Subheading"
+                },
+                {
+                    "type": "text",
+                    "id": "cta_3_btn",
+                    "label": "Monster CTA 3 Button Text"
+                },
+                {
+                    "type": "url",
+                    "id": "cta_3_link",
+                    "label": "Monster CTA 3 Button Link"
+                },
+				{
+					"type": "header",
+					"content": "CTA 4"
+				},
+                {
+                    "type": "checkbox",
+                    "id": "show_cta4",
+                    "label": "Show CTA 4?"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "cta_4_img",
+                    "label": "Monster CTA 4 Image"
+                },
+                {
+                    "type": "text",
+                    "id": "cta_4_heading",
+                    "label": "Monster CTA 4 Heading"
+                },
+                {
+                    "type": "text",
+                    "id": "cta_4_subheading",
+                    "label": "Monster CTA 4 Subheading"
+                },
+                {
+                    "type": "text",
+                    "id": "cta_4_btn",
+                    "label": "Monster CTA 4 Button Text"
+                },
+                {
+                    "type": "url",
+                    "id": "cta_4_link",
+                    "label": "Monster CTA 4 Button Link"
+                },
+				{
+					"type": "header",
+					"content": "Spacing"
+				},
+				{
+					"type": "select",
+					"id": "container_width",
+					"label": "Container Width",
+					"options": [
+						{
+							"value": "container",
+							"label": "Contained"
+						},
+						{
+							"value": "container-fluid",
+							"label": "Full Width"
+						}
+					]
+				},
+				{
+					"type": "checkbox",
+					"id": "hide_gutters",
+					"label": "Remove Column Gutters?"
+				},
+				{
+					"type": "text",
+					"id": "sec_padding",
+					"label": "Section Padding",
+					"info": "Top and Bottom Padding in px",
+					"default": "30"
+				},
+				{
+					"type": "header",
+					"content": "Custom"
+				},
+				{
+					"type": "text",
+					"id": "custom_class",
+					"label": "Custom Class"
+				}
+			]
+		}
+		
+	]
+  }
+{% endschema %}
+
