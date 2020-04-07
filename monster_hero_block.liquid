@@ -1,0 +1,54 @@
+{%- capture background_image -%}
+  {%- unless mb.monster_hero_bg == blank -%}
+    style="background: url({{ mb.monster_hero_bg | img_url: 'master' }}) top center / cover no-repeat;"
+  {%- endunless -%}
+{%- endcapture -%}
+
+{%- capture section_padding -%}
+  padding: {%- if mb.sec_padding != blank -%} {{ mb.sec_padding | append: "px" }} {%- else -%}0{%- endif -%} 0;
+{%- endcapture -%}
+
+{%- capture background_transp -%}
+    {%- unless mb.show_transp == false -%}
+    background-color: rgba({{mb.monster_transp | color_extract: 'red'}}, {{mb.monster_transp | color_extract: 'green'}}, {{mb.monster_transp | color_extract: 'blue'}}, {{mb.monster_avalue | append: '%'}});
+    {%- endunless -%}
+{%- endcapture -%}
+
+{%- capture heading_styles -%}
+    {%- unless mb.hero_heading_size == blank -%}
+    font-size: {{mb.hero_heading_size | append: 'px' }};
+    {%- endunless -%}
+    {%- unless mb.hero_heading_color == blank -%}
+    color: {{mb.hero_heading_color | color_to_hex}};
+    {%- endunless -%}
+{%- endcapture -%}
+
+{%- capture subheading_styles -%}
+    {%- unless mb.hero_subheading_size == blank -%}
+      font-size: {{mb.hero_subheading_size | append: 'px' }};
+    {%- endunless -%}
+    {%- unless mb.hero_subheading_color == blank -%}
+      color: {{mb.hero_subheading_color | color_to_hex }};
+    {%- endunless -%}
+{%- endcapture -%}
+
+
+<div {{ background_image }} class="monster-block-item row__hero block-{{block.id}} {{mb.custom_class}}">
+  <div style="{{ background_transp }} {{ section_padding }}" class="monster-hero-inner-wrap">
+    <div class="{{container_width}}">
+      <div class="row {{mb.text_align}}">
+        <div class="col-sm-12">
+          {%- unless mb.hero_heading == blank -%}
+              <h2 class="monster-hero-heading" style="{{heading_styles}}">{{mb.hero_heading}}</h2>
+          {%- endunless -%}
+          {%- unless mb.hero_subheading == blank -%}
+              <p class="monster-hero-subheading" style="{{subheading_styles}}">{{mb.hero_subheading}}</p>
+          {%- endunless -%}
+          {%- unless mb.hero_link == blank -%}
+              <a href="{{mb.hero_link}}" class="btn {{mb.button_style}}">{{mb.hero_btn}}</a>
+          {%- endunless -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
