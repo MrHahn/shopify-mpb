@@ -1,0 +1,33 @@
+{%- for block in section.blocks -%}
+
+  {% assign mb = block.settings %}
+
+  {%- capture container_width -%}
+   {%- if mb.container_width == 'container-fluid' -%}
+      container-fluid
+   {%- else -%}
+      container
+   {%- endif -%}
+  {%- endcapture -%}
+
+  {%- case block.type -%}
+
+  	{%- when 'hero' -%}
+
+  		{%- render 'monster_hero_block', block: block, container_width: container_width, mb: mb -%}
+
+  	{%- when 'content' -%}
+
+  		{%- render 'monster_content_block', block: block, container_width: container_width, mb: mb -%}
+
+  	{%- when 'fifty-fifty' -%}
+
+  		{%- render 'monster_fifty_fifty', block: block, container_width: container_width, mb: mb -%}
+
+  	{%- when 'cta_row' -%}
+
+		{%- render 'monster_cta_row', block: block, container_width: container_width, mb: mb -%}
+	
+	{%- endcase -%}
+
+{% endfor %}
