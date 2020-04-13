@@ -10,6 +10,9 @@
 
     .monster-block-item.row__fifty-fifty {
         position: relative;
+	.row {
+	    align-items: center;
+	}
     }
 
     .background-wrapper {
