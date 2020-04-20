@@ -31,13 +31,39 @@
       color: {{mb.content_subheading_color | color_to_hex}};
     {%- endunless -%}
 {%- endcapture -%}
+{%- unless mb.horizontal_padding == blank -%}
+	<style>
+      .block-{{block.id}} .content-inner{
+        padding: 0 {{ mb.horizontal_padding | append: 'px' }};
+      }
+	</style>
+{%- endunless -%}
+{%- unless mb.content_mobile_heading_size == blank -%}
+	<style>
+      @media screen and (max-width: 768px){
+        .block-{{block.id}} .monster-content-heading{
+          font-size: {{mb.content_mobile_heading_size | append: 'px' }} !important;
+        }  	
+      }
+	</style>
+{%- endunless -%}
+{%- unless mb.content_mobile_subheading_size == blank -%}
+	<style>
+      @media screen and (max-width: 768px){
+        .block-{{block.id}} .monster-content-subheading{
+          font-size: {{mb.content_mobile_subheading_size | append: 'px' }} !important;
+        }  	
+      }
+	</style>
+{%- endunless -%}
 
 
 <div {{ background_image }} class="monster-block-item row__content block-{{block.id}} {{mb.custom_class}}">
   <div style="{{ background_transp }} {{ section_padding }}" class="monster-content-inner-wrap">
     <div class="{{container_width}}">
-      <div class="row {{mb.text_align}}">
+      <div class="row no-gutters {{mb.text_align}}">
         <div class="col-sm-12">
+          <div class="content-inner">
           {%- unless mb.content_heading == blank -%}
               <h2 class="monster-content-heading" style="{{heading_styles}}">{{mb.content_heading}}</h2>
           {%- endunless -%}
@@ -47,6 +73,7 @@
           {%- unless mb.content_link == blank -%}
               <a href="{{mb.content_link}}" class="btn {{mb.button_style}}">{{mb.content_btn}}</a>
           {%- endunless -%}
+          </div>
         </div>
       </div>
     </div>
