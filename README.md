@@ -43,7 +43,7 @@ once all files have been added to the theme you just need to add this snippet of
 ```
 This will ensure that the page that is using the builder will have bootstrap4 available for the grid.
 
-## Updates
+## Updates 4-20-2020
 ````
 - The "All Collections" page are no longer bugged if no products are added.
 - The Featured collection section is no longer bugged
