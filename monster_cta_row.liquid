@@ -21,8 +21,6 @@
 {%- capture section_padding -%}
   padding: {%- if mb.sec_padding != blank -%} {{ mb.sec_padding | append: "px" }} {%- else -%}0{%- endif -%} 0;
 {%- endcapture -%}
-
-
 {%- assign format = mb.cta_format -%}
 {%- unless mb.show_CTA_transp == false -%}
   <style>
@@ -67,6 +65,7 @@
     }
   </style>
 {%- endunless -%}
+
 <div style="{{ cta_bg_img }}" class="monster-block-item row__cta block-{{block.id}} {{mb.custom_class}}">
   <div style="{{ background_transp }} {{ section_padding }}" class="monster-hero-inner-wrap">
     <div class="{{container_width}}">
