@@ -1,9 +1,27 @@
+{% if section.settings.remove_padding == true %}
+<style>
+	.monster-page {
+    	margin-top: -55px;
+    	margin-bottom: -55px;
+	}
+</style>
+{% endif %}
+
 {% render 'monster-block', section: section %}
 
 
 {% schema %}
   {
     "name": "Monster Block 1",
+	"settings":[
+		{
+			"type": "checkbox",
+			"id": "remove_padding",
+			"label": "Remove Header and Footer Padding?",
+			"default": true,
+			"info": "Some themes have padding built into the header and footer, This checkbox will remove that"
+		}
+	],
 	"blocks":[
 		{
 			"type": "hero",
@@ -73,6 +91,12 @@
 					"info": "in px"
 				},
 				{
+					"type": "text",
+					"id": "hero_mobile_heading_size",
+					"label": "Hero Mobile Heading Font Size",
+					"info": "in px"
+				},
+				{
 					"type": "color",
 					"id": "hero_heading_color",
 					"label": "Monster Heading Color"
@@ -86,6 +110,12 @@
 					"type": "text",
 					"id": "hero_subheading_size",
 					"label": "Hero Subheading Font Size",
+					"info": "in px"
+				},
+				{
+					"type": "text",
+					"id": "hero_mobile_subheading_size",
+					"label": "Hero Mobile Sub Heading Font Size",
 					"info": "in px"
 				},
 				{
@@ -219,7 +249,13 @@
 				{
 					"type": "text",
 					"id": "content_heading_size",
-					"label": "Content Heading Font Size",
+					"label": "Monster Content Heading Font Size",
+					"info": "in px"
+				},
+				{
+					"type": "text",
+					"id": "content_mobile_heading_size",
+					"label": "Mobile Content Heading Font Size",
 					"info": "in px"
 				},
 				{
@@ -235,13 +271,19 @@
 				{
 					"type": "text",
 					"id": "content_subheading_size",
-					"label": "Content Subheading Font Size",
+					"label": "Monster Content Font Size",
+					"info": "in px"
+				},
+				{
+					"type": "text",
+					"id": "content_mobile_subheading_size",
+					"label": "Mobile Content Font Size",
 					"info": "in px"
 				},
 				{
 					"type": "color",
 					"id": "content_subheading_color",
-					"label": "Content Monster Subheading Color"
+					"label": "Monster Content Color"
 				},
 				{
 					"type" : "text",
@@ -292,6 +334,13 @@
 					"id": "sec_padding",
 					"label": "Section Padding",
 					"info": "Top and Bottom Padding in px",
+					"default": "30"
+				},
+				{
+					"type": "text",
+					"id": "horizontal_padding",
+					"label": "Horizontal Content Padding",
+					"info": "Horizontal Padding in px",
 					"default": "30"
 				},
 				{
@@ -396,13 +445,19 @@
 				{
 					"type": "text",
 					"id": "content_heading_size",
-					"label": "Content Heading Font Size",
+					"label": "Heading Font Size",
+					"info": "in px"
+				},
+				{
+					"type": "text",
+					"id": "mobile_content_heading_size",
+					"label": "Mobile Heading Font Size",
 					"info": "in px"
 				},
 				{
 					"type": "color",
 					"id": "content_heading_color",
-					"label": "Content Heading Color"
+					"label": "Heading Color"
 				},
 				{
 					"type": "html",
@@ -413,6 +468,12 @@
 					"type": "text",
 					"id": "half_content_size",
 					"label": "Content Font Size",
+					"info": "in px"
+				},
+				{
+					"type": "text",
+					"id": "mobile_half_content_size",
+					"label": "Mobile Content Font Size",
 					"info": "in px"
 				},
 				{
@@ -469,6 +530,13 @@
 					"id": "sec_padding",
 					"label": "Section Padding",
 					"info": "Top and Bottom Padding in px",
+					"default": "30"
+				},
+				{
+					"type": "text",
+					"id": "horizontal_padding",
+					"label": "Horizontal Content Padding",
+					"info": "Horizontal Padding in px",
 					"default": "30"
 				},
 				{
