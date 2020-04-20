@@ -16,7 +16,7 @@
 
 {%- capture heading_styles -%}
     {%- unless mb.hero_heading_size == blank -%}
-    font-size: {{mb.hero_heading_size | append: 'px' }};
+   	font-size: {{mb.hero_heading_size | append: 'px' }};
     {%- endunless -%}
     {%- unless mb.hero_heading_color == blank -%}
     color: {{mb.hero_heading_color | color_to_hex}};
@@ -32,6 +32,24 @@
     {%- endunless -%}
 {%- endcapture -%}
 
+{%- unless mb.hero_mobile_heading_size == blank -%}
+	<style>
+      @media screen and (max-width: 768px){
+        .block-{{block.id}} .monster-hero-heading{
+          font-size: {{mb.hero_mobile_heading_size | append: 'px' }} !important;
+        }  	
+      }
+	</style>
+{%- endunless -%}
+{%- unless mb.hero_mobile_subheading_size == blank -%}
+	<style>
+      @media screen and (max-width: 768px){
+        .block-{{block.id}} .monster-hero-subheading{
+          font-size: {{mb.hero_mobile_subheading_size | append: 'px' }} !important;
+        }  	
+      }
+	</style>
+{%- endunless -%}
 
 <div {{ background_image }} class="monster-block-item row__hero block-{{block.id}} {{mb.custom_class}}">
   <div style="{{ background_transp }} {{ section_padding }}" class="monster-hero-inner-wrap">
