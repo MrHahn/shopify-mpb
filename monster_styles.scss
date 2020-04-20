@@ -1,18 +1,37 @@
+/* Monster Page Builder Styles */
 .monster-page {
-    margin-top: -55px;
-    margin-bottom: -55px;
+    .row__hero {
+      .monster-hero-heading{
+          margin:0;
+      }
+    }
   	.monster-content-content {
     	padding-bottom: 15px;
     }
-      .content-inner {
-        padding: 0 15px;
-    }
+  	 @media screen and (max-width: 768px){
+  		.content-inner {
+        	padding: inherit !important;
+    	}
+  	}
+    .row__content{
+      @media screen and (max-width: 768px){
+        .container-fluid{
+          padding:0 !important;
+        }
+      }
+    } 
 
     .monster-block-item.row__fifty-fifty {
         position: relative;
-	.row {
-	    align-items: center;
-	}
+      .text-center{
+      	justify-content: center;
+      }
+      .text-right{
+      	justify-content: flex-end;
+      }
+      .text-left{
+      	justify-content: flex-start;
+      }
     }
 
     .background-wrapper {
@@ -27,39 +46,42 @@
         left: 0;
         right: 0;
     }
-	.monster-cta.overlay {
-		display: block;
-		position: relative;
+  	.monster-cta.overlay {
+        display: block;
+        position: relative;
 	}
   	.monster-cta.overlay:hover img{
   		opacity:1;
   	}
   	.monster-cta.overlay:hover .img-container {
-    		opacity: 1;
+    	opacity: 1;
 	}	
-    	.monster-cta.overlay .cta-text-content {
-		position: absolute;
-		width: 100%;
-		left: 0;
-		top: 50%;
-		transform: translateY(-50%);
+    .monster-cta.overlay .cta-text-content {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+  	.monster-cta.overlay:hover .cta-text-content {
+        display: none;
     }
     .monster-cta-wrap{
-	margin-bottom: 15px;
+		margin-bottom: 15px;
       	h3{
         	margin: 10px 0 0;
         }
-      	p{
+      	 p{
       		margin-bottom:5px;
       }
     }
-    .img-container {
+  	.img-container {
         background-size: cover;
         background-position: center;
       	background-repeat: no-repeat;
     }
   @media screen and (max-width: 750px){
-    .monster-block-item > div {
+  	.monster-block-item > div {
     	padding: 30px !important;
 	}
     .monster-block-item.row__fifty-fifty{
@@ -68,11 +90,11 @@
     .background-wrapper.bg-left{
       	right:0 !important;
     }
-    .background-wrapper.bg-right{
+  	.background-wrapper.bg-right{
       	left:0 !important;
     }
     .row__fifty-fifty img {
       	margin: 25px 0;
-    }
+  	}
   }
 }
