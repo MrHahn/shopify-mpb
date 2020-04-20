@@ -48,6 +48,32 @@
     {%- endunless -%}
 {%- endcapture -%}
 
+{%- unless mb.horizontal_padding == blank -%}
+	<style>
+      .block-{{block.id}} .content-inner{
+        padding: 0 {{ mb.horizontal_padding | append: 'px' }};
+      }
+	</style>
+{%- endunless -%}
+{%- unless mb.mobile_content_heading_size == blank -%}
+	<style>
+      @media screen and (max-width: 768px){
+        .block-{{block.id}} .half-header{
+          font-size: {{mb.mobile_content_heading_size | append: 'px' }} !important;
+        }  	
+      }
+	</style>
+{%- endunless -%}
+{%- unless mb.mobile_half_content_size == blank -%}
+	<style>
+      @media screen and (max-width: 768px){
+        .block-{{block.id}} .half-content{
+          font-size: {{ mb.mobile_half_content_size | append: 'px' }} !important;
+        }  	
+      }
+	</style>
+{%- endunless -%}
+
 
 
 <div style="{{bg_color}} {{section_padding}}" class="monster-block-item row__fifty-fifty block-{{block.id}} {{mb.custom_class}}">
@@ -62,10 +88,10 @@
 		  	<img src="{{ mb.content_image | img_url: 'master' }}" alt=""/>
           {% endunless %}
         </div>
-        <div class="col-sm-6 {{mb.content_alignment}}">
+        <div class="col-sm-6 d-flex align-items-center {{mb.content_alignment}}">
           <div class="content-inner">
-          {%- unless mb.content_heading == blank -%}<h2 style="{{heading_styles}}">{{mb.content_heading}}</h2>{%- endunless -%}
-          {%- unless mb.half_content == blank -%}<div style="{{half_content_styles}} margin-bottom: 15px;">{{mb.half_content}}</div>{%- endunless -%}
+          {%- unless mb.content_heading == blank -%}<h2 class="half-header" style="{{heading_styles}}">{{mb.content_heading}}</h2>{%- endunless -%}
+          {%- unless mb.half_content == blank -%}<div class="half-content" style="{{half_content_styles}} margin-bottom: 15px;">{{mb.half_content}}</div>{%- endunless -%}
           {%- unless mb.content_btn_link == blank %}<a href="{{mb.content_btn_link}}" class="btn {{mb.button_style}}">{{mb.content_btn}}</a>{% endunless %}
           </div>
         </div>
@@ -77,10 +103,10 @@
   	<div {{bg_image}}  class="background-wrapper bg-right"><div style="{{ background_transp }}" class="background-overlay d-block d-md-none"></div></div>
     <div class="{{container_width}}">
       <div class="row no-gutters">
-        <div class="col-sm-6 {{mb.content_alignment}}">
+        <div class="col-sm-6 d-flex align-items-center {{mb.content_alignment}}">
           <div class="content-inner">
-          {%- unless mb.content_heading == blank -%}<h2 style="{{heading_styles}}">{{mb.content_heading}}</h2>{%- endunless -%}
-          {%- unless mb.half_content == blank -%}<div style="{{half_content_styles}} margin-bottom: 15px;">{{mb.half_content}}</div>{%- endunless -%}
+          {%- unless mb.content_heading == blank -%}<h2 class="half-header" style="{{heading_styles}}">{{mb.content_heading}}</h2>{%- endunless -%}
+          {%- unless mb.half_content == blank -%}<div class="half-content" style="{{half_content_styles}} margin-bottom: 15px;">{{mb.half_content}}</div>{%- endunless -%}
           {%- unless mb.content_btn_link == blank %}<a href="{{mb.content_btn_link}}" class="btn {{mb.button_style}}">{{mb.content_btn}}</a>{% endunless %}
           </div>
         </div>
