@@ -45,20 +45,8 @@ This will ensure that the page that is using the builder will have bootstrap4 av
 
 ## Updates 4-20-2020
 ````
-- The "All Collections" page are no longer bugged if no products are added.
-- The Featured collection section is no longer bugged
-- All header icon issues fixed
-- Drop down menus now inherit font family and sizes
-- Center oriented header nav no longer shows on mobile
-- Centered content on custom section is now continually centered on mobile
-- Only one hero section shows now. mobile section is now hidden
-- header nav background color now full width
-- Fixed Featured Collection section bug
-- Hero section is now contained content instead of full width
-- Added in monster page builder
 - Changed some labels in the Monster Page builder to make more sense
 - Added horizontal padding to fifty fifty row and content rows
-- Moved all default styles out of madwire.scss and into theme.scss.liquid
 ````
 
 
