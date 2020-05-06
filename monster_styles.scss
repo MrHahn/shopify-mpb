@@ -52,6 +52,7 @@
   	.monster-cta.overlay {
         display: block;
         position: relative;
+	opacity: inherit;
 	}
   	.monster-cta.overlay:hover img{
   		opacity:1;
