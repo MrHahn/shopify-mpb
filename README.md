@@ -31,6 +31,8 @@ Install the styles.
 the contents of this file must be placed in a .scss or .scss.liquid file. 
 a .css file will not work. If there is no .scss file in the theme, create one and add it in the head.
 
+This file can also be uploaded individually, just remember to reference it in the header if you take this approach.
+
 ```
 monster_styles.scss
 (the contents of this file can just be copied to the bottom of any .scss stylesheet. .css will not work)
