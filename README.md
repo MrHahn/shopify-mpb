@@ -34,7 +34,7 @@ monster_styles.css
 (the contents of this file can just be copied to the bottom of any .scss stylesheet. .css will not work)
 ```
 
-once all files have been added to the theme you just need to add this snippet of code to theme.liquid file above the </head> tag
+once all files have been added to the theme you just need to add this snippet of code to theme.liquid file above the closing head tag and above all other stylesheets in the theme. This will ensure that the header/ footer on the monster pages doesn't get messed up
 ```
   {% assign template_name = template.suffix | split: '-' %}
   {% if template_name[0] == 'monster' %}
