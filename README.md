@@ -27,14 +27,18 @@ monster_fifty_fifty.liquid
 monster_hero_block.liquid
 ```
 
-Install the styles
+Install the styles.
+the contents of this file must be placed in a .scss or .scss.liquid file. 
+a .css file will not work. If there is no .scss file in the theme, create one and add it in the head.
 
 ```
-monster_styles.css
+monster_styles.scss
 (the contents of this file can just be copied to the bottom of any .scss stylesheet. .css will not work)
 ```
 
-once all files have been added to the theme you just need to add this snippet of code to theme.liquid file above the closing head tag and above all other stylesheets in the theme. This will ensure that the header/ footer on the monster pages doesn't get messed up
+once all files have been added to the theme you just need to add this snippet of code to theme.liquid file above the closing head tag and above all other stylesheets in the theme. This will ensure that the header/ footer on the monster pages doesn't get messed up.
+
+This part only needs to be done if the theme isn't MadSections 1.7 or MadSections 2.0, or if the theme isn't using Bootstrap 4.
 ```
   {% assign template_name = template.suffix | split: '-' %}
   {% if template_name[0] == 'monster' %}
